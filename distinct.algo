@@ -1,0 +1,25 @@
+ALGORITHM distinct_elements
+VAR
+    set1 : ARRAY_OF INTEGER[3, 1, 7, 9];
+    set2: ARRAY_OF INTEGER[2, 4, 1, 9, 3];
+    exist:BOOLEAN
+    i,j,sum=INTEGER
+BEGIN
+    sum :=0
+    FOR i FROM 0 TO 3 DO
+    exist:=FALSE;
+        FOR j FROM 0 TO 5 DO
+            IF (set1[i] == set2[j]) THEN
+            exist:=TRUE;
+            END_IF
+        END_FOR
+        IF (exist=FALSE) THEN
+            sum := sum + set1[i];
+        ELSE
+        (exist=TRUE) THEN
+        sum := sum + set2[j];
+        sum:=set1[i] + set2[j];
+        END_IF
+    END_FOR
+    write("the sum of distinct elements :",sum);
+END
