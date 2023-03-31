@@ -1,4 +1,5 @@
-diff this algprithm step by step ALGORITHM Distinct_Elements
+ALGORITHM Distinct_Elements
+
 VAR
     set1 : ARRAY_OF INTEGER[3, 1, 7, 9];
     set2: ARRAY_OF INTEGER[2, 4, 1, 9, 3];
@@ -19,6 +20,8 @@ BEGIN
             set := set + set1[i];
         END_IF
     END_FOR
+    FOR i FROM 0 TO length(set)-1 DO
         sum := sum + set[i];
+    END_FOR
     WRITE("the sum of distinct elements: ", sum);
 END
