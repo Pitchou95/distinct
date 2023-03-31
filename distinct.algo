@@ -1,25 +1,24 @@
-ALGORITHM distinct_elements
+diff this algprithm step by step ALGORITHM Distinct_Elements
 VAR
     set1 : ARRAY_OF INTEGER[3, 1, 7, 9];
     set2: ARRAY_OF INTEGER[2, 4, 1, 9, 3];
-    exist:BOOLEAN
-    i,j,sum=INTEGER
+    set: ARRAY_OF INTEGER;
+    exist: BOOLEAN;
+    i, j, sum: INTEGER;
 BEGIN
-    sum :=0
+    sum := 0;
+    set := [];
     FOR i FROM 0 TO 3 DO
-    exist:=FALSE;
-        FOR j FROM 0 TO 5 DO
+        exist := FALSE;
+        FOR j FROM 0 TO 4 DO
             IF (set1[i] == set2[j]) THEN
-            exist:=TRUE;
+                exist := TRUE;
             END_IF
         END_FOR
-        IF (exist=FALSE) THEN
-            sum := sum + set1[i];
-        ELSE
-        (exist=TRUE) THEN
-        sum := sum + set2[j];
-        sum:=set1[i] + set2[j];
+        IF (exist = FALSE) THEN
+            set := set + set1[i];
         END_IF
     END_FOR
-    write("the sum of distinct elements :",sum);
+        sum := sum + set[i];
+    WRITE("the sum of distinct elements: ", sum);
 END
