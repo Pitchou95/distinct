@@ -2,7 +2,7 @@ FUNCTION dot_product(v1, v2) : INTEGER
 VAR
     ps : INTEGER = 0 
 BEGIN
-    FOR i FROM o TO Length(v1)-1 DO 
+    FOR i FROM 0 TO Length(v1)-1 DO 
         ps := ps + (v1[i] * v2[i]);
     END_FOR
     RETURN ps; 
