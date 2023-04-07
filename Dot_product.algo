@@ -1,28 +1,28 @@
-PROCEDURE dot_product(v1,v2)
+FUNCTION dot_product(v1, v2) : INTEGER
 VAR
-    ps = 0 // Initialize the dot product to zero
+    ps : INTEGER = 0 
 BEGIN
-    FOR i FROM 1 TO length(v1,v2) DO // Iterate through the vector components
-        ps = ps + (v1[i]*v2[i]); // Calculate the dot product by multiplying the corresponding components and summing them up
+    FOR i FROM o TO Length(v1)-1 DO 
+        ps := ps + (v1[i] * v2[i]);
     END_FOR
-    RETURN ps; // Return the dot product
+    RETURN ps; 
 END
-
-// This algorithm uses the dot product operation to determine if the given pairs of vectors are orthogonal or not.
 ALGORITHM check_orthogonality
 VAR
-    n: INTEGER // Number of pairs of vectors
-    v1, v2:ARRAY[1..n] OF INTEGER; // The vectors
-    ps: INTEGER // The dot product
+    n : INTEGER;
+    v1, v2 : ARRAY_OF INTEGER;
+    ps : INTEGER 
 BEGIN
-    READ(n); // Read the number of pairs of vectors from the input
-    FOR i FROM 1 TO n DO // Iterate through the pairs of vectors
-        READ(v1[i], v2[i]); // Read the vectors from the input
-        ps := dot_product(v1[i], v2[i]); // Calculate the dot product of the vectors using the dot_product procedure
-        IF (ps=0) THEN // Check if the dot product is zero
-            WRITE("The given vectors v1 and v2 are orthogonal"); // Display the result if the vectors are orthogonal
+    READ(n); 
+    FOR i FROM 1 TO n DO 
+        FOR j FROM 1 TO Length(v1) DO
+            READ(v1[j], v2[j]); 
+        END_FOR
+        ps := dot_product(v1, v2);
+        IF (ps = 0) THEN 
+            WRITE("The given vectors v1 and v2 are orthogonal"); 
         ELSE
-            WRITE("The given vectors v1 and v2 are not orthogonal"); // Display the result if the vectors are not orthogonal
+            WRITE("The given vectors v1 and v2 are not orthogonal"); 
         END_IF
     END_FOR
 END

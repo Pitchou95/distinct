@@ -1,24 +1,30 @@
 function dotProduct(v1, v2) {
-let ps = 0; // Initialize the dot product to zero
-for (let i = 0; i < v1.length; i++) { // Iterate through the vector components
-ps += (v1[i] * v2[i]); // Calculate the dot product by multiplying the corresponding components and summing them up
-}
-return ps; // Return the dot product
+    let ps = 0;
+    for (let i = 0; i < v1.length; i++) {
+    ps += v1[i] * v2[i];
+    }
+    return ps;
 }
 
-function checkOrthogonality() {
-let n = parseInt(prompt("Enter the number of pairs of vectors:")); // Read the number of pairs of vectors from the input
-let v1 = new Array(n); // Declare an array of size n to store the first vectors of each pair
-let v2 = new Array(n); // Declare an array of size n to store the second vectors of each pair
-let ps; // Declare a variable to store the dot product
-for (let i = 0; i < n; i++) { // Iterate through the pairs of vectors
-v1[i] = parseInt(prompt("Enter the first vector of pair " + (i+1) + ":")); // Read the first vector of the pair from the input
-v2[i] = parseInt(prompt("Enter the second vector of pair " + (i+1) + ":")); // Read the second vector of the pair from the input
-ps = dotProduct(v1[i], v2[i]); // Calculate the dot product of the vectors using the dotProduct function
-if (ps === 0) { // Check if the dot product is zero
-console.log("The given vectors v1 and v2 are orthogonal"); // Display the result if the vectors are orthogonal
-} else {
-console.log("The given vectors v1 and v2 are not orthogonal"); // Display the result if the vectors are not orthogonal
-}
+    function checkOrthogonality() {
+    let n = parseInt(prompt("Enter the number of vector pairs:"));
+    for (let i = 1; i <= n; i++) {
+    let v1 = [];
+    let v2 = [];
+    for (let j = 1; j <= 2; j++) {
+    let vector = prompt(`Enter vector ${j} (space separated values):`);
+    let values = vector.split(" ").map(Number);
+    if (j === 1) {
+        v1 = values;
+    } else {
+        v2 = values;
+    }
+    }
+    let ps = dotProduct(v1, v2);
+    if (ps === 0) {
+    console.log("The given vectors v1 and v2 are orthogonal");
+    } else {
+    console.log("The given vectors v1 and v2 are not orthogonal");
+    }
 }
 }
